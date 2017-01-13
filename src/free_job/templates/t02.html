@@ -1,0 +1,39 @@
+<ion-view view-title="自由职业者">
+	<ion-content class="basic-info">
+		<div class="form-list">
+			<label class="fl">姓名</label>
+			<input ng-model="personInfo.Name" name="user" type="text" placeholder="我们不会透露您的姓名"  class="fl input-txt blue-txt" required maxlength="4" />
+		</div>
+		<div class="form-list">
+			<label class="fl">邮箱</label>
+			<input ng-model="personInfo.Mail" type="email"  class="fl input-txt input-email" required />
+		</div>
+		<div class="form-list">
+			<label class="fl">性别</label>
+			<div class="fl select-sex" ng-click="selectGender()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl">工作年限</label>
+			<div class="fl select-worker-year" ng-click="selectWorkYears()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl">所在区域</label>
+			<div class="fl select-area" ng-click="selectArea()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="select-advantage">
+			<label>我的优势</label>
+			<textarea rows="3" maxlength="140" class="txtarea" ng-model="personInfo.Introduction" required></textarea>
+			<span class="txtarea-number">
+				<span id="inputNum">{{personInfo.Introduction.length>=1?personInfo.Introduction.length:0}}</span>/140
+			</span>
+		</div>
+		<div class="required-info" ng-hide='requiredInfo'>您没有填写必填项目，请您填写</div>
+		<div class="next-step" ng-click="goT03()">下一步</div>
+	</ion-content>
+</ion-view>

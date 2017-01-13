@@ -1,0 +1,47 @@
+<ion-view view-title="工作发布者">
+	<ion-content class="publish-info">
+		<div id="companyImage" class="publish-title">
+			<div class="add-picture">
+				<img ng-click="choosePic()" id="UserProfilePicture" ng-src="img/addPicture-bg.png">
+			</div>
+			<div class="picture-txt">
+				上传公司LOGO
+			</div>
+		</div>
+		<div class="publish-container">
+			<div class="form-list">
+				<label class="fl">公司名称</label>
+				<input ng-model="companyInfo.CompanyName" type="text" class="fl select-area" required maxlength="50"/>
+				<div class="clear"></div>
+			</div>
+			<div class="form-list">
+				<label class="fl long-label">所属行业</label>
+				<div class="fl select-industry" ng-click="selectIndustry()">
+					<i class="wrapper-dropdown"></i>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="form-list">
+				<label class="fl">所在地区</label>
+				<div class="fl select-area" ng-click="selectArea()">
+					<i class="wrapper-dropdown"></i>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="form-list">
+				<label class="fl">公司地址</label>
+				<input ng-model="companyInfo.CompanyAddress" type="text" class="fl select-area" required/>
+				<div class="clear"></div>
+			</div>
+			<div class="select-advantage">
+				<label>公司简介</label>
+				<textarea ng-model="companyInfo.CompanyIntroduction" rows="3" maxlength="140" class="txtarea" required></textarea>
+				<span class="txtarea-number">
+					<span id="inputNum">{{companyInfo.CompanyIntroduction.length>=1?companyInfo.CompanyIntroduction.length:0}}</span>/140
+				</span>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="next-step margin20" ng-click="goT10()">下一步</div>
+	</ion-content>
+</ion-view>

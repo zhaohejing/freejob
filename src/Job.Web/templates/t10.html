@@ -1,0 +1,35 @@
+<ion-view view-title="公司认证信息">
+	<div class="company-information">
+		<div id="cardImage" class="company-title">
+			<div class="picture-txt">
+				请上传身份证正面和工牌/名片合照
+			</div>
+			<div class="add-picture">
+				<div class="add-picture-frame">
+					<div class="add-img">
+						<img  id="UserProfilePicture" ng-src="img/addPicture-bg.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="company-info">
+			<div class="list-info">
+				<label>照片要求</label>
+			</div>
+			<div class="gray-color">
+				拍摄时确保照片
+				<span class="pink-color">
+					边框完整，字体清晰，亮度均匀
+				</span>
+			</div>
+			<div class="list-info">
+				<label class="fl">联系邮箱</label>
+				<input ng-model="companyInfo.Email" type="email" class="fl input-email" required/>
+			</div>
+		</div>
+		<div class="step-btn">
+			<div class="a-btn last-step fl" ng-click="goT09()">上一步</div>
+			<div class="a-btn next-step fl" ng-click="goT11()">下一步</div>
+		</div>
+	</div>
+</ion-view>

@@ -1,0 +1,51 @@
+<ion-view view-title="已发布">
+	<ion-content class="ion-content-height">
+		<div class="publish-select-container">
+			<div class="publish-content">
+				<!--已发布空白页-->
+				<div class="publish-already-blank" ng-show="jobList.length === 0">
+	  				<div class="blank-bg"></div>
+	  				<div class="blank-info">
+						您还没有发布新工作
+					</div>
+					<div class="publish-btn" ng-click="goT13()">发布新工作</div>
+	      		</div>
+	      		<!--已发布列表页-->
+      			<ion-list class="publish-already-listbox" ng-show="jobList.length > 0">
+	  				<ion-item ng-repeat="job in jobList">
+	  					<div class="already-option" ng-click="gotList(job)">
+							<div class="option-part1">
+								<div class="option-left">
+									<div class="job-name fl">
+										<span class="job-txt">{{job.WorkName}}</span>
+										<span class="new-prompt" ng-if="job.IsHaveNew"></span>
+									</div>
+									<div class="job-state fr" ng-class="{'color-gray':(job.State == '已关闭'),'color-red':(job.State == '已下架')}">{{job.State}}</div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="option-part2">
+								发布时间: {{job.CreationTime | date:'yyyy-MM-dd'}}
+							</div>
+						</div>
+	  				</ion-item>
+	      		</ion-list>
+			</div>
+		</div>
+	</ion-content>
+	<div class="publish-newjob-btn fr">
+		<div class="publish-newjob-circle" ng-click="goT13()">
+			<img src="img/new-btn.png"/>
+		</div>
+	</div>
+	<div class="job-select-footer publish-select-footer">
+		<div class="tab-group">
+			<div class="mark job-listbox fl" ng-class="{'job-active':jobactive}" ng-click="changeTap(true)">
+				已发布
+			</div>
+			<div class="mark job-application fl" ng-class="{'apply-active':!jobactive,'job-active':!jobactive}" ng-click="changeTap(false)">
+				已审核
+			</div>
+		</div>
+	</div>
+</ion-view>

@@ -1,0 +1,22 @@
+<ion-view view-title="绑定发布者手机号">
+	<div class="publish-mobile">
+		<div class="bindphone-bg">
+		</div>
+		<div class="bindphone">
+			<label class="fl">手机号码</label>
+			<input ng-model="companyInfo.Phone" type="text" class="fl input-txt" ng-blur="validMobile()" maxlength="11" required />
+		</div>
+		<div class="bindphone">
+			<label class="fl">验证码</label>
+			<input ng-model="companyInfo.Code" type="text" class="fl input-txt code-txt"/>
+			<span class="send-code fl" ng-class="{'sendCode':sendCode}" ng-bind="paracont" ng-click="sendMsg(true)">
+				发送验证码
+			</span>
+		</div>
+		<div class="step-btn">
+			<div class="a-btn last-step fl" ng-click="goT10()">上一步</div>
+			<div class="a-btn next-step fl" ng-click="goT12()">完成</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</ion-view>

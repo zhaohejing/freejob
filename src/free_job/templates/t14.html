@@ -1,0 +1,46 @@
+<ion-view view-title="招聘人数">
+	<div class="advertise-container">
+		<div class="form-list">
+			<label class="fl">招聘人数</label>
+			<input ng-model="workInfo.NeedSum" type="tel" class="fl input-num" placeholder="0" required/>
+			<span class="quantifier fl">人</span>
+		</div>
+		<div class="form-list">
+			<label class="fl">性别要求</label>
+			<div class="fl select-sex select-need" ng-click="selectSex()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl long-label2">招聘截止时间</label>
+			<div class="fl select-worker-year select-job-end short-div" ng-click="selectCloseTime()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl salary-name">薪资</label>
+			<div class="fl salary-option">
+				<input value="" class="fl" type="tel" placeholder="0" ng-model="workInfo.Pay"/>
+				<span class="salary-way fl">/结算形式</span>
+			</div>
+			<div class="fl select-salary" ng-click="selectPayState()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="select-advantage">
+			<label>工作描述</label>
+			<textarea rows="3" maxlength="300" class="txtarea" ng-model="workInfo.WorkIntroduction" required></textarea>
+			<span class="txtarea-number">
+				<span id="inputNum">{{workInfo.WorkIntroduction.length>=1?workInfo.WorkIntroduction.length:0}}</span>/300
+			</span>
+		</div>
+		<div class="step-btn">
+			<div class="a-btn last-step fl" ng-click="goT13()">上一步</div>
+			<div class="a-btn next-step fl" ng-click="goJobPublishBtn()">发布职位</div>
+		</div>
+	</div>
+	<div class="frame-home-btn fr" ng-click="goJobPublish()">
+		<img src="img/home-ico.png" class="home-btn">
+	</div>
+</ion-view>

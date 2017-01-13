@@ -1,0 +1,139 @@
+<ion-view view-title="工作列表">
+	<div class="ion-content-height">
+		<div class="job-select-container">
+			<div class="select-title" ng-show="jobactive">
+				<div class="select-btn select-classify fl" ng-class="{'active':(selectType==1)}" ng-click="chooseType(1)">
+		        	分类&nbsp;
+		        	<span class="arrow-up" ng-class="{'arrow-active':(selectType==1)}"></span>
+				</div>
+				<div class="select-btn select-area fl" ng-click="chooseType(2)" ng-class="{'active':(selectType==2)}">
+		        	地区&nbsp;
+		        	<span class="arrow-up" ng-class="{'arrow-active':(selectType==2)}"></span>
+				</div>
+			</div>
+			<ion-content>
+				<div class="select-inner" ng-show="selectType != 0">
+					<div class="grade grade-classify" ng-show="jobactive && selectType == 1">
+					    <ul class="grade-w">
+					    	<li>
+					        	<div class="first-level" ng-class="{'click-active':allWT}" ng-click="classifyList(null);query(1,0)">
+					        		全部
+					        	</div>
+					        </li>
+					        <li ng-repeat="b in workTypesData">
+					        	<div class="first-level" ng-click="classifyList(b)" ng-class="{'click-active':b.ex}">
+					        		{{b.text}}
+					        	</div>
+					        	<ul class="grade-s" ng-if="b.ex">
+							        <li class="second-level" ng-class="{'click-index':(s.value===jobParams.Cate)}" ng-repeat="s in b.children" ng-click="query(1,s.value)">{{s.text}}</li>
+							    </ul>
+					        </li>
+					    </ul>
+					</div>
+					<div class="grade grade-area" ng-show="jobactive && selectType == 2">
+					    <ul class="grade-w">
+					    	<li>
+					        	<div class="first-level" ng-class="{'click-active':allAR}" ng-click="areaList(null);query(2,0)">
+					        		全部
+					        	</div>
+					        </li>
+					        <li ng-repeat="b in areasData">
+					        	<div class="first-level" ng-click="areaList(b)" ng-class="{'click-active':b.ex}">
+					        		{{b.text}}
+					        	</div>
+					        	<ul class="grade-s" ng-if="b.ex">
+							        <li class="second-level" ng-class="{'click-index':(s.value===jobParams.Area)}" ng-repeat="s in b.children" ng-click="query(2,s.value)">{{s.text}}</li>
+							    </ul>
+					        </li>
+					    </ul>
+					</div>
+				</div>
+				<!--工作列表-->
+				<ion-list class="job-select-content" ng-if="jobactive && selectType==0">
+					<ion-refresher  pulling-text="下拉刷新..." on-refresh="jobRefresh()">
+					</ion-refresher>
+	  				<ion-item ng-repeat="job in jobList" ng-click="goT08(job.Id)">
+	  					<div class="list-item">
+							<div class="user-info-part1">
+								<div class="user-img fl">{{job.WorkName | limitTo:1}}</div>
+								<div class="user-post fl">
+									<div class="userPost">
+										<div class="user-position fl">{{job.WorkName}}</div>
+										<div class="pay-way fr"><span class="pay-money">￥{{job.Pay}}</span>/{{job.PayState| limitTo : 1}}</div>
+										<div class="clear"></div>
+									</div>
+									<div class="userWork-label">
+										<span class="label-circle green fl">
+											前端开发
+										</span>
+										<span class="label-circle light-blue fl">
+											前端开发
+										</span>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="user-info-part2">
+								<div class="area-location fl">
+									{{job.WorkArea}}
+								</div>
+								<div class="company-name fl">
+									{{job.CompanyName}}
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+	  				</ion-item>
+					<ion-infinite-scroll on-infinite="jobLoadMore()" distance="1%">
+					</ion-infinite-scroll>
+	      		</ion-list>
+				<!--已报名工作-->
+				<ion-list class="job-already-application" ng-if="!jobactive">
+					<ion-refresher  pulling-text="下拉刷新..." on-refresh="bmRefresh()">
+					</ion-refresher>
+	  				<ion-item ng-repeat="bm in bmList">
+	  					<div class="already-option">
+							<div class="option-part1">
+								<div class="option-left fl">
+									<div>
+										<span class="job-name fl">{{bm.ParttimeName}}</span>
+										<span class="job-state fl" ng-class="{'color-pink':(bm.State == '未通过'),'color-yellow':(bm.State == '已放弃'),'color-green':(bm.State == '已通过'),'color-blue':(bm.State == '已报名')}">{{bm.State}}</span>
+										<div class="clear"></div>
+									</div>
+									<div class="integral-option">
+										<span class="salary-money">￥{{bm.Pay}}</span>/{{bm.PayState | limitTo : 1}}
+									</div>
+								</div>
+								<div class="option-right fr" ng-if="bm.ShowDel===1" ng-click="delete(bm)">
+									<img src="img/delete-ico.png"/>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="option-part2">
+								<span class="option-company fl">{{bm.CompanyName}}</span>
+								<span class="option-date fr">{{bm.CloseTime | date:"yyyy-MM-dd"}}</span>
+								<div class="clear"></div>
+							</div>
+						</div>
+	  				</ion-item>
+					<ion-infinite-scroll on-infinite="bmLoadMore()" distance="1%">
+					</ion-infinite-scroll>
+	  			</ion-list>
+			</ion-content>
+		</div>
+	</div>
+	<div class="frame-search-btn fr" ng-click="goSearch()">
+		<img src="img/search-ico.png" class="search-btn"/>
+	</div>
+	<div class="job-select-footer">
+		<div class="tab-group">
+			<div class="mark job-listbox fl" ng-class="{'job-active':jobactive}" ng-click="changeTap(true)">
+				工作列表
+			</div>
+			<div class="mark job-application fl" ng-class="{'apply-active':!jobactive,'job-active':!jobactive}" ng-click="changeTap(false)">
+				已报名工作
+			</div>
+		</div>
+	</div>
+</ion-view>

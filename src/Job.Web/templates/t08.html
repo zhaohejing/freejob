@@ -1,0 +1,119 @@
+<ion-view view-title="工作详情">
+	<ion-content>
+		<div class="work-details">
+			<div class="work-details-top">
+				<div class="work-details-img fl">
+					{{job.WorkName | limitTo: 1}}
+				</div>
+				<div class="work-details-title fl">
+					<div class="work-name">
+						{{job.WorkName}}
+					</div>
+					<div class="job-cont">
+						<div class="job-label fl">
+							<span class="label-circle green fl">
+								{{job.WorkCate[0]}}
+							</span>
+							<span class="label-circle light-blue fl">
+								{{job.WorkCate[1]}}
+							</span>
+						</div>
+						<div class="job-money fr">
+							<span class="pay-money">￥{{job.Pay}}</span>/{{job.PayState | limitTo : 1}}
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="work-details-info">
+				<div class="work-place">
+					<span class="work-name fl">
+						工作地点
+					</span>
+					<span class="work-value fl">
+						{{job.WorkArea}}
+					</span>
+					<div class="clear"></div>
+				</div>	
+				<div class="work-place">
+					<span class="work-name fl">
+						工作日期
+					</span>
+					<span class="work-value fl">
+						{{job.StartDate | date:'yyyy-MM-dd'}}至{{job.EndDate | date:'yyyy-MM-dd'}}
+					</span>
+					<div class="clear"></div>
+				</div>
+				<div class="work-place">
+					<span class="work-name fl">
+						工作时间
+					</span>
+					<span class="work-value fl">
+						{{job.StartTime}}点~{{job.EndTime}}点
+					</span>
+					<div class="clear"></div>
+				</div>
+				<div class="work-place">
+					<span class="work-name fl">
+						招聘人数
+					</span>
+					<span class="work-value fl">
+						{{job.NeedSum}}名 <span class="red-warn">
+							剩余{{(job.NeedSum - job.JoinCount)}}名
+						</span>
+					</span>
+					<div class="clear"></div>
+				</div>
+				<div class="work-place">
+					<span class="work-name fl">
+						报名截止
+					</span>
+					<span class="work-value fl">
+						{{job.CloseTime | date:'yyyy-MM-dd'}}
+					</span>
+					<div class="clear"></div>
+				</div>
+				<div class="work-place">
+					<span class="work-name fl">
+						性别要求
+					</span>
+					<span class="work-value fl">
+						{{job.NeedSex}}
+					</span>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="work-details-description">
+				<h2>工作描述</h2>
+				<div class="description-cont">
+					{{job.ParttimeIntroduction}}
+				</div>
+			</div>
+			<div class="work-details-bottom">
+				<div class="work-details-img fl">
+					<img src="img/company-logo.png"/>
+				</div>
+				<div class="work-details-title fl">
+					<div class="work-name">
+						{{job.CompanyName}}
+					</div>
+					<div class="job-cont">
+						<div class="job-label">
+							<span class="label-circle pink fl">
+								教育
+							</span>
+							<span class="label-circle light-blue fl">
+								金融
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="frame-search-btn fr" ng-click="goToList()">
+				<img src="img/home-ico.png" class="search-btn">
+			</div>
+			<div class="next-step" ng-click="join()">{{job.CanRegist === 0?"立即报名":"放弃报名"}}</div><!--用户成功报名职位后，立即报名按钮变为放弃报名按钮，放弃报名该工作，已报名状态变为已放弃，该按钮再次变为立即报名按钮-->
+		</div>
+	</ion-content>
+</ion-view>

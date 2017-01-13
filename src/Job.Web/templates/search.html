@@ -1,0 +1,17 @@
+<ion-view view-title="搜索">
+	<ion-content>
+		<div class="search-container">
+			<div class="search-title">
+				<input type="text" ng-model="workName" ng-change="changename(workName)" placeholder="搜索你喜欢的工作" class="input-search" />
+			</div>
+			<div class="search-list">
+				<div class="search-item" ng-repeat="w in workList" ng-click="goInfo(w.PartId)">
+					{{w.ParttimeName}}
+				</div>
+			</div>
+		</div>
+	</ion-content>
+	<div class="frame-home-btn fr" ng-click="goJobList()">
+		<img src="img/home-ico.png" class="home-btn"/>
+	</div>
+</ion-view>

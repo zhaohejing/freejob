@@ -1,0 +1,37 @@
+<ion-view view-title="工作选择">
+	<ion-content>
+	<div class="form-search">
+		<div class="form-list form-padding">
+			<i class="job-wrapper-dropdown fr"></i>
+			<input ng-model="workName" type="text" class="fl job-input-txt" placeholder="输入你擅长的工作" ng-change="changename(workName)"/>
+		</div>
+		<div class="job-dropdown form-padding" ng-repeat="item in workList">
+			<div class="fl job-select">
+				{{item.Name}}
+			</div>
+			<div class="fl job-addBtn" ng-click="addWork(item)">
+				+添加
+			</div>
+		</div>
+		<div class="selected-info">
+			<span class="info-txt">已经选择的工作</span>
+		</div>
+		<div class="selected-content form-padding" ng-repeat="item in hasSelectList">
+			<div class="fl job-select">
+				{{item.Name}}
+			</div>
+			<div class="fl job-addBtn job-removeBtn" ng-click="delWork($index)">
+				<i></i>删除
+			</div>
+		</div>
+		<div class="tip-info">
+			最多添加5份工作
+		</div>
+		<div class="step-btn">
+			<div class="a-btn last-step fl margin20" ng-click="goT02()">上一步</div>
+			<div class="a-btn next-step fl margin20" ng-click="goT04()">下一步</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	</ion-content>
+</ion-view>

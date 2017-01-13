@@ -1,0 +1,57 @@
+<ion-view view-title="发布新工作">
+	<ion-content class="publish-newjob">
+		<div class="form-list">
+			<label class="fl">工作名称</label>
+			<input ng-model="workInfo.WorkName" type="text" class="fl input-txt" required/>
+		</div>
+		<div class="form-list">
+			<label class="fl">工作类别</label>
+			<div class="fl select-sex work-type" ng-click="selectIndustry()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl">工作地点</label>
+			<div class="fl select-sex work-place" ng-click="selectArea()">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="tip-info">
+			提示：若无工作地点则选择“不限工作地点”
+		</div>
+		<div class="form-list">
+			<label class="fl long-label2">工作开始日期</label>
+			<div class="fl select-sex select-industry startDate short-div" ng-click="showDatePicker(1)">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl long-label2">工作结束日期</label>
+			<div class="fl select-sex select-industry endDate short-div" ng-click="showDatePicker(2)">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="tip-info">
+			提示：若无工作日期限制则选择“工作时间自由”
+		</div>
+		<div class="form-list">
+			<label class="fl long-label2">工作开始时间</label>
+			<div class="fl select-sex select-industry startTime short-div" ng-click="showTimePicker(1)">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="form-list">
+			<label class="fl long-label2">工作结束时间</label>
+			<div class="fl select-sex select-industry endTime short-div" ng-click="showTimePicker(2)">
+				<i class="wrapper-dropdown"></i>
+			</div>
+		</div>
+		<div class="tip-info">
+			提示：若无工作时间限制则选择“不限制工作时间”
+		</div>
+		<div class="next-step" ng-click="goT14()">下一步</div>
+	</ion-content>
+	<div class="frame-home-btn fr" ng-click="goJobPublish()">
+		<img src="img/home-ico.png" class="home-btn">
+	</div>
+</ion-view>

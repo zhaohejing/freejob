@@ -1,0 +1,39 @@
+<ion-view view-title="报名用户信息">
+	<ion-content>
+		<div class="user-information-container">
+			<div class="user-information-title">
+				审核报名信息
+			</div>
+			<div class="user-information-cont">
+				<div class="form-list-user">
+					<label class="fl">用户名</label>
+					<span class="txt-right fl">{{person.Name}}</span>
+				</div>
+				<div class="form-list-user">
+					<label class="fl">擅长工作</label>
+					<span class="txt-right fl">{{person.Works.join(' ')}}</span>
+				</div>
+				<div class="form-list-user">
+					<label class="fl">工作年限</label>
+					<span class="txt-right fl">{{person.WorkYear}}</span>
+				</div>
+				<div class="form-list-user job-content">
+					<label class="fl">工作经验</label>
+					<span class="txt-right fl" ng-repeat="p in person.Projects">{{p.ProjectIntroduction}}</span>
+				</div>
+				<div class="form-list-user job-content">
+					<label class="fl">我的优势</label>
+					<span class="txt-right fl">{{person.Introduction}}</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="step-btn">
+				<div class="a-btn last-step fl" ng-click="noPass()">不通过</div>
+				<div class="a-btn next-step fl" ng-click="pass()">通过</div>
+			</div>
+		</div>
+	</ion-content>
+	<div class="frame-search-btn fr" ng-click="goJobPublish()">
+		<img src="img/home-ico.png" class="search-btn">
+	</div>
+</ion-view>

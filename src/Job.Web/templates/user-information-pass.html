@@ -1,0 +1,52 @@
+<ion-view view-title="报名已通过">
+	<ion-content>
+		<div class="user-information-container">
+			<div class="user-information-title">
+				<div class="fl user-title">审核报名信息</div>
+				<div class="job-state fr color-green">已通过</div>
+				<div class="clear"></div>
+			</div>
+			<div class="user-information-cont">
+				<div class="form-list-user">
+					<label class="fl">用户名</label>
+					<span class="txt-right fl">{{person.Name}}</span>
+				</div>
+				<div class="form-list-user">
+					<label class="fl">擅长工作</label>
+					<span class="txt-right fl">{{person.Works.join(' ')}}</span>
+				</div>
+				<div class="form-list-user">
+					<label class="fl">工作年限</label>
+					<span class="txt-right fl">{{person.WorkYear}}</span>
+				</div>
+				<div class="form-list-user job-content">
+					<label class="fl">工作经验</label>
+					<span class="txt-right fl" ng-repeat="p in person.Projects">{{p.ProjectIntroduction}}</span>
+				</div>
+				<div class="form-list-user job-content">
+					<label class="fl">我的优势</label>
+					<span class="txt-right fl">{{person.Introduction}}</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--联系方式-->
+			<div class="contact-way-container">
+				<div class="user-information-title">
+					联系方式
+				</div>
+				<div class="user-contact-cont">
+					<div class="form-list-user">
+						<label class="fl">手机号码</label>
+						<span class="txt-right fl">{{person.Phone}}</span>
+					</div>
+					<div class="form-list-user">
+						<label class="fl">邮箱地址</label>
+						<span class="txt-right fl">{{person.Mail}}</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="next-step-pass" ng-click="noPass()">退回报名信息</div>
+		</div>
+	</ion-content>
+</ion-view>

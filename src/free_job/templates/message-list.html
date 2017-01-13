@@ -1,0 +1,56 @@
+<ion-view view-title="已发布工作报名信息">
+	<ion-content>
+		<div class="work-details message-list-container">
+			<div class="work-details-top">
+				<div class="work-details-img fl">
+					<img src="img/company-logo.png"/>
+				</div>
+				<div class="work-details-title fl" ng-click="goT15()">
+					<div class="work-name">
+						{{work.ParttimeName}}
+					</div>
+					<div class="job-cont">
+						<div class="job-label fl">
+							<span class="label-circle green fl">
+								前端开发
+							</span>
+							<span class="label-circle light-blue fl">
+								前端开发
+							</span>
+						</div>
+						<div class="job-money fr">
+							<span class="pay-money">￥{{work.Pay}}</span>/{{work.PayState | limitTo:1}}
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--报名消息列表-->
+			<div class="message-list-cont">
+				<ion-list class="message-list">
+	  				<ion-item ng-repeat="person in registList">
+	  					<div class="message-listbox">
+	  						<div class="message-list-left fl">
+		  						<div class="basic-information">
+		  							{{person.Name}}/{{person.Sex}}/{{person.WorkYear}}
+		  							<span class="new-prompt"></span>
+		  						</div>
+		  						<div class="project-experience">
+		  							{{person.Introduction}}
+		  						</div>
+		  					</div>
+		  					<div class="message-list-right fl" ng-click="goUserInformation(person)">
+		  						查看
+		  					</div>	
+		  					<div class="clear"></div>
+	  					</div>
+	  				</ion-item>
+	  			</ion-list>
+			</div>
+			<div class="next-step" ng-click="showConfirm()">关闭该工作</div>
+		</div>
+	</ion-content>
+	<div class="frame-search-btn fr" ng-click="goJobPublish()">
+		<img src="img/home-ico.png" class="search-btn">
+	</div>
+</ion-view>
