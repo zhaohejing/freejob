@@ -19,6 +19,7 @@ namespace Job.Application {
         public int Id { get; set; }
         public string WorkName { get; set; }
         public string CompanyName { get; set; }
+        public string temp { get; set; }
 
         public string WorkArea { get; set; }
         public List<string> WorkCate { get; set; }
@@ -84,13 +85,13 @@ namespace Job.Application {
         public string WorkName { get; set; }
         public int WorkArea { get; set; }
         public List<int> WorkCates { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public string WorkIntroduction { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public int StartTime { get; set; }
         public int EndTime { get; set; }
         public int NeedSum { get; set; }
-        public DateTime CloseTime { get; set; }
+        public DateTime? CloseTime { get; set; }
 
         public int NeedSex { get; set; }
         public decimal Pay { get; set; }

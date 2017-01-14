@@ -164,15 +164,19 @@ WHERE b.Pid={workId}";
         /// <param name="state"></param>
         /// <returns></returns>
         public IEnumerable<BaseWorkOutput> SearchWork(WorkFilter filter, out int totalCount) {
-            var sql = $@"SELECT distinct b.Id,b.ParttimeName [WorkName],
+            var sql = $@"SELECT distinct b.Id,b.ParttimeName [WorkName],c.temp,
 d.SubName [WorkArea],b.Pay,e.SubName [PayState],f.CompanyName,b.CreationTime,g.SubName [State]
   FROM Tbl_ParttimeJob AS a INNER JOIN Tbl_ParttimeInfo AS b ON a.Id=b.Pid
-  LEFT JOIN Tbl_ParttimeIndustry AS c ON c.Pid=a.Id
+  LEFT JOIN (SELECT b.IndustryId, b.Pid, c.Id,c.SubName temp
+  FROM  Tbl_ParttimeIndustry AS b 
+LEFT JOIN Tbl_PublicSubEnum AS c ON b.IndustryId=c.Id) AS c ON c.Pid=a.Id
   LEFT JOIN Tbl_PublicSubEnum AS d ON b.ParttimeArea=d.Id 
   LEFT JOIN Tbl_PublicSubEnum AS e ON b.PayState=e.Id 
  LEFT JOIN Tbl_PublicSubEnum AS g ON b.[State]=g.Id
+
   LEFT JOIN Tbl_CompanyInfo AS f ON b.CreationOne=f.CreationOne where   
-b.[State]=(SELECT TOP 1 id FROM Tbl_PublicSubEnum AS pse WHERE  pse.SubName='已发布')";
+b.[State]=(SELECT TOP 1 id FROM Tbl_PublicSubEnum AS pse WHERE  pse.SubName='已发布')
+";
             if (filter.Area > 0) {
                 sql += $" and ( b.ParttimeArea={filter.Area} or b.ParttimeArea=-1)";
             }          
@@ -184,12 +188,21 @@ b.[State]=(SELECT TOP 1 id FROM Tbl_PublicSubEnum AS pse WHERE  pse.SubName='已
             }
             var dt = MySqlHelper.ExecuteDataTable(System.Data.CommandType.Text, sql);
             var list = ConvertToModel<BaseWorkOutput>(dt);
-            if (list == null || list.Count < 0) {
+            var res = new List<BaseWorkOutput>();
+            foreach (var a in list) {
+                if (res.Any(e=>e.Id==a.Id)) {
+                    continue;
+                }
+                a.WorkCate =
+              list.Where(e => e.Id == a.Id).Select(w => w.temp).ToList();
+                res.Add(a);
+            }
+            if (res == null || res.Count < 0) {
                 totalCount = 0;
                 return null;
             }
-            totalCount = list.Count;
-            return list.OrderByDescending(c => c.CreationTime).Skip((filter.PageIndex - 1) * filter.PageSize).Take(filter.PageSize);
+            totalCount = res.Count;
+            return res.OrderByDescending(c => c.CreationTime).Skip((filter.PageIndex - 1) * filter.PageSize).Take(filter.PageSize);
         }
         public IEnumerable<T> GetPositionList<T>( ) where T : class, new() {
             var sql = @"SELECT b.Id,b.SubName [Name]
@@ -273,12 +286,13 @@ WHERE a.EnumName = '性别' ";
             return a.Where(c=>c.ParttimeName.Contains(filter));
         }
         public IEnumerable<T> GetWorks<T>( ) where T : class, new() {
+           // RedisHelper.HashDelete("Work", "Level");
             if (RedisHelper.HashExists("Work", "Level")) {
                 return RedisHelper.HashGet<IList<T>>("Work", "Level");
             }
             var sql = @"SELECT b.Id,b.SubName [Name],b.LevelCode
   FROM Tbl_PublicEnum AS a INNER JOIN Tbl_PublicSubEnum AS b ON a.Id = b.Pid
-WHERE a.EnumName = '所属行业'";
+WHERE a.EnumName = '擅长工作'";
             var dt = MySqlHelper.ExecuteDataTable(System.Data.CommandType.Text, sql);
 
             var list = ConvertToModel<T>(dt);

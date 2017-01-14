@@ -131,6 +131,7 @@ namespace Job.Controllers {
         [HttpPost]
         public IHttpActionResult RedisWorks(string filter) {
             var res = RedisHelper.HashGet<List<TempSerialize>>("Work", "WorkName");
+
             var result = res.Where(c => c.Name.Contains(filter)).OrderBy(c => c.Id).Take(5);
             return Json(new { Result = res.Count > 0 ? 1 : 0, Data = result });
         }

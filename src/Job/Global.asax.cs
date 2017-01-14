@@ -37,7 +37,7 @@ namespace Job {
             }
 
 
-            //  ExecuteSomething(null, null);
+              ExecuteSomething(null, null);
             System.Timers.Timer timer = new System.Timers.Timer(temp);
             timer.Elapsed += new System.Timers.ElapsedEventHandler(ExecuteSomething);
             //AddCount是一个方法，此方法就是每个6分钟而做的事情  
