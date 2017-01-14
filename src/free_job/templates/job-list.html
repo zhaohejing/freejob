@@ -62,12 +62,9 @@
 										<div class="pay-way fr"><span class="pay-money">￥{{job.Pay}}</span>/{{job.PayState| limitTo : 1}}</div>
 										<div class="clear"></div>
 									</div>
-									<div class="userWork-label">
-										<span class="label-circle green fl">
-											前端开发
-										</span>
-										<span class="label-circle light-blue fl">
-											前端开发
+									<div class="userWork-label" >
+										<span class="label-circle green fl" ng-repeat="cate in job.WorkCate">
+											{{cate}}
 										</span>
 										<div class="clear"></div>
 									</div>

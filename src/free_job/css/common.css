@@ -24,7 +24,7 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .project-info .project-cont{margin-bottom: 20px;}
 .project-info .project-cont .first-border{border-top:1px solid #e4e4e4;}
 .form-list label,.project-info label,.bindphone label{padding-left: 20px;font-size:18px;color:#3c3c3c;text-align:left;width:35%;line-height: 50px;}
-.form-list .input-txt,.project-info .input-txt{display: inline-block;width: 65%;height:30px;line-height: 30px;font-size: 18px;text-align: right;padding: 0 20px 0 0;color:#3C3C3C;margin:10px 0;}
+.form-list .input-txt,.project-info .input-txt{display: inline-block;width: 65%;height:49px;line-height: 49px;font-size: 18px;text-align: right;padding: 0 20px 0 0;color:#3C3C3C;}
 .form-list .blue-txt{color:#85b2f6;}
 .form-list .select-sex,.form-list .select-worker-year,.form-list .select-area{width: 65%;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3c3c3c;height:50px;line-height: 50px;}
 .form-list .select-sex i.wrapper-dropdown,.form-list .select-worker-year i.wrapper-dropdown,.form-list .select-area i.wrapper-dropdown,.form-list .select-advantage i.wrapper-dropdown{background: url(../img/select-btn.png) no-repeat right center;display: inline-block;width: 100%;height: 50px;padding-right:20px;font-size: 16px;color: #666;}
@@ -61,7 +61,7 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .step-btn .margin20,.margin20{margin-bottom: 20px;}
 /*t05*/
 .bindphone-bg{background: url(../img/bindphone.png) no-repeat center center;width:100%; height: 252px;overflow: hidden;padding: 40px 0;border-bottom: 1px solid #e4e4e4;}
-.bindphone .input-txt{display: inline-block;width: 65%;height:30px;line-height: 30px;font-size: 18px;text-align: left;padding: 0 20px 0 0;color:#3C3C3C;margin:10px 0;}
+.bindphone .input-txt{display: inline-block;width: 65%;height:50px;line-height: 50px;font-size: 18px;text-align: left;padding: 0 20px 0 0;color:#3C3C3C;}
 .bindphone .send-code{display: inline-block;background:#85b2f6;width:35%;height:50px;color: #FFFFFF;font-size: 14px;text-align: center;}
 .bindphone .code-txt{padding: 0 5px;width: 30%;}
 .bindphone .sendCode{background: #A2A2A2;color: #FFFFFF;}
@@ -131,7 +131,7 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .job-already-application .option-part2 .option-right{width: 30%;}
 /*search*/
 .search-container .search-title{margin: 10px 3%;background:url(../img/input-search.png) #ffffff left center no-repeat;border:1px solid #e4e4e4;border-radius:100px;width:94%;height:35px;padding-left: 40px;background-position: 10px 5px;}
-.search-container .search-title .input-search{width:96%;height:23px;line-height: 23px;margin:5px 0;text-align: left;color:#dbdbdb;padding: 0;font-size: 16px;}
+.search-container .search-title .input-search{width:96%;height:33px;line-height: 33px;text-align: left;color:#dbdbdb;padding: 0;font-size: 16px;}
 .search-container .search-list{background:#ffffff;border-top:1px solid #e4e4e4;}
 .search-container .search-list .search-item{border-bottom:1px solid #e4e4e4;color:#3c3c3c;font-size: 16px;padding: 15px 10px 15px 3%;}
 .frame-home-btn .home-btn{margin-top: 10px;}
@@ -170,7 +170,7 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .publish-container .form-list label.long-label,.advertise-container .form-list label.long-label{width: 42%;}
 .publish-container .form-list .select-industry{width: 58%;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3c3c3c;height: 50px;line-height: 50px;}
 .publish-container .form-list .select-industry i.wrapper-dropdown,.publish-container .form-list .select-area i.wrapper-dropdown{background: url(../img/select-btn.png) no-repeat right center;display: inline-block;width: 100%;height: 50px;padding-right:20px;font-size: 16px;color: #666;}
-.publish-container .form-list .select-area{width: 65%;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3c3c3c;height: 30px;line-height: 30px;margin:10px 0;}
+.publish-container .form-list .select-area{width: 65%;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3c3c3c;height: 50px;line-height: 50px;}
 .publish-info .next-step{margin:40px 12% 20px;background:#85b2f6;border-radius:100px;width:76%;height:58px;line-height:58px;font-size:26px;color:#ffffff;text-align:center;}
 /*t10*/
 .company-information .company-title{background:#85b2f6;width:100%;height: 250px;}
@@ -182,7 +182,7 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .company-information .list-info label{padding-left: 10px;font-size: 16px;color: #3c3c3c;text-align: left;width: 35%;line-height: 50px;}
 .company-information .gray-color{color:#a2a2a2;font-size: 14px;border-bottom: 1px solid #e4e4e4;width: 100%;padding: 10px;line-height: 25px;}
 .company-information .pink-color{color: #f55f8e;}
-.company-information .list-info .input-email{display: inline-block;width: 65%;height:30px;line-height: 30px;margin:10px 0;font-size: 18px;text-align: right;padding: 0 20px 0 0;color:#a2a2a2;}
+.company-information .list-info .input-email{display: inline-block;width: 65%;height:49px;line-height: 49px;font-size: 18px;text-align: right;padding: 0 20px 0 0;color:#a2a2a2;}
 .company-information .step-btn,.publish-mobile .step-btn,.advertise-container .step-btn{margin: 30px 20px 0;}
 .company-information .step-btn .a-btn,.publish-mobile .step-btn .a-btn,.advertise-container .step-btn .a-btn{border-radius:100px;width:48%;height:50px;line-height:50px;font-size:24px;color:#85b2f6;text-align:center;background:#ffffff;border:2px solid #85b2f6;}
 .company-information .step-btn .next-step,.publish-mobile .step-btn .next-step,.advertise-container .step-btn .next-step{background: #85b2f6;margin-left: 4%;color: #FFFFFF;}
@@ -202,13 +202,13 @@ body {font-family: \9ED1\4F53,arial;background: #FFFFFF;color: #333;letter-spaci
 .publish-newjob .form-list .short-div,.advertise-container .form-list .short-div{width: 52% !important;}
 
 /*t14*/
-.advertise-container .form-list .input-num{display: inline-block;width: 55%;height:30px;line-height: 30px;margin:10px 0;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3C3C3C;}
+.advertise-container .form-list .input-num{display: inline-block;width: 55%;height:49px;line-height: 49px;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3C3C3C;}
 .advertise-container .form-list .quantifier{width:10%;color:#85b2f6;font-size: 18px;}
 .advertise-container .form-list .select-job-end{width: 58%;}
 .advertise-container .form-list label.salary-name{width: 20%;}
-.advertise-container .form-list .salary-option{width: 68%;}
-.advertise-container .form-list .salary-option input{width:60%;padding:0 2%;display: inline-block;height: 30px;line-height: 30px;margin:10px 0;font-size: 18px;text-align: right;color: #3C3C3C;}
-.advertise-container .form-list .salary-option .salary-way{color: #85b2f6;width: 37%;font-size: 16px;display: inline-block;}
+.advertise-container .form-list .salary-option{width: 68%;text-align: right;}
+.advertise-container .form-list .salary-option input{width:65%;display: inline-block;height: 50px;line-height: 50px;font-size: 18px;text-align: right;color: #3C3C3C;}
+.advertise-container .form-list .salary-option .salary-way{color: #85b2f6;width: 35%;font-size: 16px;display: inline-block;}
 .advertise-container .form-list .select-salary{width: 12%;font-size: 18px;text-align: right;padding: 0 20px 0 0;color: #3c3c3c;height:50px;line-height: 50px;}
 .advertise-container .form-list .select-salary i.wrapper-dropdown{background: url(../img/select-btn.png) no-repeat right center;display: inline-block;width: 100%;height: 50px;font-size: 16px;color: #666;}
 /*publish-list*/

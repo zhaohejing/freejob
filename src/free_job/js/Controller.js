@@ -840,13 +840,13 @@
 			if(endDate){
 				options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':endDate};
 			} else {
-				options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+1,nowDate.getMonth(),nowDate.getDate())};
+				options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+10,nowDate.getMonth(),nowDate.getDate())};
 			}
 		} else {
 			if (startDate){
-				options = {'type':'date','beginDate':startDate,'endDate':new Date(nowDate.getFullYear()+1,nowDate.getMonth(),nowDate.getDate())};
+				options = {'type':'date','beginDate':startDate,'endDate':new Date(nowDate.getFullYear()+10,nowDate.getMonth(),nowDate.getDate())};
 			} else {
-				options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+1,nowDate.getMonth(),nowDate.getDate())};
+				options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+10,nowDate.getMonth(),nowDate.getDate())};
 			}
 		}
 
@@ -953,9 +953,9 @@
 			return YJtoast($ionicLoading,$timeout,'请选择工作类别');
 		}
 
-		if(workInfo.WorkArea === 0){
-			return YJtoast($ionicLoading,$timeout,'请选择工作地点');
-		}
+		//if(workInfo.WorkArea === 0){
+		//	return YJtoast($ionicLoading,$timeout,'请选择工作地点');
+		//}
 
 		$state.go('t14');
 	};
@@ -1012,7 +1012,7 @@
     $scope.selectCloseTime = function(){
         var options = null;
         var nowDate = new Date();
-        options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+1,nowDate.getMonth(),nowDate.getDate())};
+        options = {'type':'date','beginDate':new Date(nowDate.getFullYear(),nowDate.getMonth(),nowDate.getDate()),'endDate':new Date(nowDate.getFullYear()+10,nowDate.getMonth(),nowDate.getDate())};
         var picker = new UI.DtPicker(options);
 
         picker.show(function(rs) {
