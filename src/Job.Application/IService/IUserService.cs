@@ -10,7 +10,7 @@ namespace Job.Application.IService {
         Tbl_SysUser GetUserInfo(string token);
         ErrEnum RegisterUserInfo(UserInfo user, Tbl_SysUser info);
         ErrEnum RegisterCompanyInfo(CompanyInfo company, Tbl_SysUser info);
-        string SendMessage(MessageModel model);
+        ErrEnum SendMessage(MessageModel model);
         ErrEnum RegisterWeChat(string token);
         ErrEnum RegistWork(int userId, int workId);
         ErrEnum DeleteRegistWork(int userId, int workId);

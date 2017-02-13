@@ -199,12 +199,24 @@ ELSE
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public string SendMessage(MessageModel model) {
-            var num = MessageHelper.CreateNum( );
+        public ErrEnum SendMessage(MessageModel model) {
+            var num = CreateNum( );
             ErrEnum aaa = ErrEnum.SendMessageFail;
             //暂时先不发短信
-            //var message = ConfigurationManager.AppSettings["Message"];
-            //var res = MessageHelper.SendMessage(model.Mobile, string.Format(message, num));
+
+
+           
+            var message = ConfigurationManager.AppSettings["Message"];
+            var res = SendMessage(model.Mobile, string.Format(message, num));
+            string[] msg = res.Split(',');
+            if (msg[0] == "0") {
+                var sql = $@"INSERT INTO Tbl_VerifyCode
+(SysId,Mobile,VerifyType,VerifyCode,CreationTime)
+VALUES({model.SysId},'{model.Mobile}',1,'{num}',getdate())";
+                MySqlHelper.ExecteNonQuery(CommandType.Text, sql);
+                aaa = ErrEnum.SendMessageOk;
+            }
+          
             //string[] tempA = res.Split('&');
             ////不为空
             //if (tempA != null && tempA.Length > 0) {
@@ -218,12 +230,9 @@ ELSE
             //}
             // if (aaa == ErrEnum.SendMessageOk) {
             //保存数据库
-            var sql = $@"INSERT INTO Tbl_VerifyCode
-(SysId,Mobile,VerifyType,VerifyCode,CreationTime)
-VALUES({model.SysId},'{model.Mobile}',1,'{num}',getdate())";
-            MySqlHelper.ExecteNonQuery(CommandType.Text, sql);
+          
             // }
-            return num;
+            return aaa;
         }
         /// <summary>
         /// 报名工作

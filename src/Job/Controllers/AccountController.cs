@@ -92,10 +92,10 @@ namespace Job.Controllers {
         [HttpPost]
         public IHttpActionResult SendMessgae(MessageModel model) {
             var res = _userService.SendMessage(model);
-            //if (res==ErrEnum.SendMessageOk) {
-            return Json(new { Result = 1, ErrorMsg = "发送成功", Data = res });
-            //}
-            //return Json(new { Result = 0, ErrorMsg = "发送失败" });
+            if (res == ErrEnum.SendMessageOk) {
+                return Json(new { Result = 1, ErrorMsg = "发送成功", Data = res });
+            }
+            return Json(new { Result = 0, ErrorMsg = "发送失败" });
         }
         /// <summary>
         /// 验证手机验证码是否正确
